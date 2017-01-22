@@ -130,7 +130,6 @@ a.desc:after {
 
 .like-btn{
     float: right;
-    margin-right: 200px;
     width: 65px;
 }
 
@@ -139,7 +138,6 @@ a.desc:after {
 }
 
 .project-short{
-    width: 600px;
     padding: 10px;
     margin-bottom: 40px;
     background: #d8bfd8;
@@ -159,10 +157,6 @@ a.desc:after {
     margin-right: 10px;
 }
 
-.search-result{
-    margin-left: 20%;
-}
-
 #searchclear {
     position: absolute;
     right: 5px;
@@ -175,12 +169,7 @@ a.desc:after {
     color: #ccc;
 }
 
-.project-short .owner-login{
-    margin-left: 70px;
-}
-
 .user-container{
-    width: 700px;
     margin-left: 15%;
     margin-top: 50px;
 }

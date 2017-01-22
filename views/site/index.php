@@ -5,11 +5,19 @@
  * @var $projectInfo object
  * @var $contributors object
  */
+use app\components\LikeWidget\LikeWidget;
+use app\models\Like;
 use yii\helpers\Url;
 
 $this->title = 'MobiDev GitHub Browser - Homepage';
 $this->params['breadcrumbs'][] = 'Homepage';
 ?>
+<head>
+    <script type="text/javascript">
+        var csrfVar = '<?=Yii::$app->request->getCsrfToken()?>';
+    </script>
+</head>
+
 <div class="site-index">
 
     <div class="body-content">
@@ -46,7 +54,7 @@ $this->params['breadcrumbs'][] = 'Homepage';
                     <?php foreach ($contributors as $contributor) : ?>
                         <div class="main-user-info">
                             <a href="<?= Url::to(['/site/user', 'username' => $contributor->login])  ?>" class="username"><?= $contributor->login ?></a>
-                            <a class="btn btn-default like-btn" href="#" id="<?= $contributor->id ?>">Like</a>
+                            <?= LikeWidget::widget(['objectId' => $contributor->id , 'likeType' => Like::OBJECT_TYPE_USER])?>
                         </div>
                     <?php endforeach; ?>
                 <?php endif;?>

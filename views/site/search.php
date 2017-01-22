@@ -5,12 +5,20 @@
  * @var $s string
  * @var $projects array
  */
+use app\components\LikeWidget\LikeWidget;
+use app\models\Like;
 use yii\helpers\Url;
 
 $this->title = 'Search ' . $s;
 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<head>
+    <script type="text/javascript">
+        var csrfVar = '<?=Yii::$app->request->getCsrfToken()?>';
+    </script>
+</head>
+
 <div class="search-result">
     <?php if ($s) : ?>
         <p class="lead">For search term "<?= $s ?>" found:</p>
@@ -33,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php endif; ?>
                 </div>
                 <div class="col-lg-6">
-                    <a href="<?= Url::to(['/site/user', 'username' => $project->owner->login]) ?>" class="owner-login"><?= $project->owner->login ?></a>
+                    <a href="<?= Url::to(['/site/user', 'username' => $project->owner->login]) ?>"><?= $project->owner->login ?></a>
                 </div>
             </div>
             <div class="row mb-10">
@@ -49,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     forks: <?= $project->forks_count ?>
                 </div>
                 <div class="col-lg-4">
-                    <a class="btn btn-default like-btn-search" href="#" id="33123">Like</a>
+                    <?= LikeWidget::widget(['objectId' => $project->id, 'likeType' => Like::OBJECT_TYPE_REPO])?>
                 </div>
             </div>
         </div>

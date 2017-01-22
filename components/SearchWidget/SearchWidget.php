@@ -13,8 +13,6 @@ use yii\base\Widget;
 
 class SearchWidget extends Widget
 {
-    public $search;
-
     public function run()
     {
         return $this->render('index');
