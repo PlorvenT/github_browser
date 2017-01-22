@@ -43,6 +43,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'search' => '/site/search',
+                'user/<username:\w+>' => 'site/user',
             ],
         ],
     ],

@@ -5,7 +5,10 @@
  * @var $projectInfo object
  * @var $contributors object
  */
+use yii\helpers\Url;
+
 $this->title = 'MobiDev GitHub Browser - Homepage';
+$this->params['breadcrumbs'][] = 'Homepage';
 ?>
 <div class="site-index">
 
@@ -42,7 +45,7 @@ $this->title = 'MobiDev GitHub Browser - Homepage';
                 <?php if ($contributors) : ?>
                     <?php foreach ($contributors as $contributor) : ?>
                         <div class="main-user-info">
-                            <a href="#" class="username"><?= $contributor->login ?></a>
+                            <a href="<?= Url::to(['/site/user', 'username' => $contributor->login])  ?>" class="username"><?= $contributor->login ?></a>
                             <a class="btn btn-default like-btn" href="#" id="<?= $contributor->id ?>">Like</a>
                         </div>
                     <?php endforeach; ?>

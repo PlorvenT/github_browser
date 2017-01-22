@@ -4,7 +4,8 @@
  * @var $this yii\web\View
  * @var $projectInfo object
  */
-$this->title = 'My Yii Application';
+$this->title = 'Some problems';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-index">
     <div class="jumbotron">

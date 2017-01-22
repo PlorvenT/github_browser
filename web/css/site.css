@@ -174,3 +174,34 @@ a.desc:after {
     cursor: pointer;
     color: #ccc;
 }
+
+.project-short .owner-login{
+    margin-left: 70px;
+}
+
+.user-container{
+    width: 700px;
+    margin-left: 15%;
+    margin-top: 50px;
+}
+
+.user-container img{
+    width: 160px;
+    display: block;
+    margin: 0 auto;
+}
+
+.like-btn-user{
+    margin-left: 37%;
+    margin-top: 40px;
+    width: 65px;
+}
+
+.user-container .text{
+    padding-bottom: 15px;
+    font-size: 15px;
+}
+
+.mb-50{
+    margin-bottom: 50px;
+}
