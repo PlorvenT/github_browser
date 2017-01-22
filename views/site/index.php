@@ -1,51 +1,52 @@
 <?php
 
-/* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+/**
+ * @var $this yii\web\View
+ * @var $projectInfo object
+ * @var $contributors object
+ */
+$this->title = 'MobiDev GitHub Browser - Homepage';
 ?>
 <div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
     <div class="body-content">
-
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-lg-6">
+                <h2><?= $projectInfo->full_name ?></h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <div class="property-main">
+                    Description : <?= $projectInfo->description ?>
+                </div>
+                <div class="property-main">
+                    Watchers : <?= $projectInfo->watchers_count ?>
+                </div>
+                <div class="property-main">
+                    Forks : <?= $projectInfo->forks_count ?>
+                </div>
+                <div class="property-main">
+                    Open issues : <?= $projectInfo->open_issues_count ?>
+                </div>
+                <div class="property-main">
+                    Homepage : <a href="<?= $projectInfo->homepage ?>"> <?= $projectInfo->homepage ?> </a>
+                </div>
+                <div class="property-main">
+                    GitHub repo : <a href="<?= $projectInfo->html_url ?>"> <?= $projectInfo->html_url ?> </a>
+                </div>
+                <div class="property-main">
+                    Created at : <?= $projectInfo->created_at ?>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-lg-6">
+                <h2>Contributors:</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <?php if ($contributors) : ?>
+                    <?php foreach ($contributors as $contributor) : ?>
+                        <div class="main-user-info">
+                            <a href="#" class="username"><?= $contributor->login ?></a>
+                            <a class="btn btn-default like-btn" href="#" id="<?= $contributor->id ?>">Like</a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif;?>
             </div>
         </div>
 

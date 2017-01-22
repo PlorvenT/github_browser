@@ -113,3 +113,27 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.property-main{
+    margin: 15px 0 15px 20px;
+}
+
+.main-user-info{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main-user-info .username{
+    font-size: 17px;
+    margin: 40px;
+}
+
+.like-btn{
+    float: right;
+    margin-right: 200px;
+    width: 65px;
+}
+
+.body-content{
+    margin-top: 50px;
+}

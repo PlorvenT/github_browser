@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use Milo\Github\Api;
+use Milo\Github\Http\Response;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -11,6 +13,8 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    const YII_ID = '3451238';
+
     /**
      * @inheritdoc
      */
@@ -60,7 +64,30 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $api = new Api();
+
+        $contributors = null;
+        $projectInfo = null;
+
+        $projectInfo = $api->get('/repositories/:id', ['id' => self::YII_ID]);
+        if ($projectInfo->getCode() == Response::S200_OK){
+            $projectInfo = json_decode($projectInfo->getContent());
+
+            $contributorsUrl = $projectInfo->contributors_url;
+            $contributors = $api->get($contributorsUrl);
+            if ($contributors->getCode() == Response::S200_OK){
+                $contributors = json_decode($contributors->getContent());
+            }
+        }
+
+        if ($projectInfo) {
+            return $this->render('index', [
+                'projectInfo' => $projectInfo,
+                'contributors' => $contributors,
+            ]);
+        } else {
+            return $this->render('problem');
+        }
     }
 
     /**
