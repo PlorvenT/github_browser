@@ -42,6 +42,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'repo/<id:\d+>' => '/site/index',
                 'search' => '/site/search',
                 'user/<username:\w+>' => 'site/user',
             ],
