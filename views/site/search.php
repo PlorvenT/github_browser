@@ -12,7 +12,11 @@ $this->title = 'Search ' . $s;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="search-result">
-    <p class="lead">For search term "<?= $s ?>" found:</p>
+    <?php if ($s) : ?>
+        <p class="lead">For search term "<?= $s ?>" found:</p>
+    <?php else : ?>
+        <p class="lead">Search form empty</p>
+    <?php endif; ?>
 
     <?php foreach ($projects as $project) : ?>
         <div class="project-short">
