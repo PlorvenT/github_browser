@@ -89,16 +89,23 @@ class SiteController extends Controller
         }
     }
 
-    public function actionSearch($s = null){
+    /**
+     * Search project
+     *
+     * @param string $s
+     * @return string
+     */
+    public function actionSearch($s = ''){
         $api = new Api();
         $listProject = [];
+        $this->view->params['search'] = $s;
 
         $listProjectRequest = $api->get('/search/repositories?q=' . str_replace(' ', '+', $s));
         if ($listProjectRequest->getCode() == Response::S200_OK){
-            $listProject = $api->decode($listProjectRequest);
+            $listProject = $api->decode($listProjectRequest)->items;
         }
 
-        return $this->render('search', ['s' => $s, 'projects' => $listProject->items]);
+        return $this->render('search', ['s' => $s, 'projects' => $listProject]);
     }
 
     /**
@@ -131,33 +138,5 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 }
