@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\components\SearchWidget\SearchWidget;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -34,12 +35,7 @@ AppAsset::register($this);
         ],
     ]);
 
-    echo "<form class='navbar-form navbar-right' role='search'>
-            <div class='form-group has-feedback'>
-                <input id='searchbox' type='text' placeholder='Search' class='form-control'>
-                <span id='searchicon' class='fa fa-search form-control-feedback'></span>
-            </div>
-          </form>";
+    echo SearchWidget::widget();
 
     NavBar::end();
     ?>

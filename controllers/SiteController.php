@@ -65,7 +65,6 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $api = new Api();
-
         $contributors = null;
         $projectInfo = null;
 
@@ -88,6 +87,18 @@ class SiteController extends Controller
         } else {
             return $this->render('problem');
         }
+    }
+
+    public function actionSearch($s = null){
+        $api = new Api();
+        $listProject = [];
+
+        $listProjectRequest = $api->get('/search/repositories?q=' . str_replace(' ', '+', $s));
+        if ($listProjectRequest->getCode() == Response::S200_OK){
+            $listProject = $api->decode($listProjectRequest);
+        }
+
+        return $this->render('search', ['s' => $s, 'projects' => $listProject->items]);
     }
 
     /**

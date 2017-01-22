@@ -137,3 +137,28 @@ a.desc:after {
 .body-content{
     margin-top: 50px;
 }
+
+.project-short{
+    width: 600px;
+    padding: 10px;
+    margin-bottom: 40px;
+    background: #d8bfd8;
+    border-radius: 6px;
+}
+
+.mb-10{
+    margin-bottom: 10px;
+}
+
+.mt-5{
+    margin-top: 5px;
+}
+
+.like-btn-search{
+    float: right;
+    margin-right: 10px;
+}
+
+.search-result{
+    margin-left: 20%;
+}
