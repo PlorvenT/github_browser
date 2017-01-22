@@ -12,6 +12,18 @@ class SiteController extends Controller
     const YII_ID = '3451238';
 
     /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
+    }
+
+    /**
      * Displays homepage.
      *
      * @param string $id
