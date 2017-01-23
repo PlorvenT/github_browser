@@ -9,7 +9,7 @@ REQUIREMENTS
 
 The minimum requirement by this project template that your Web server supports PHP 5.4.0.
 
-The application installed according to the above instructions should work out of box with either an Apache HTTP server or an Nginx HTTP server, on Windows, Mac OS X, or Linux running PHP 5.4 or higher.
+The application installed according to the above instructions should work out of box with either an Apache HTTP server or an Nginx HTTP server, on Windows, Mac OS X, or Linux.
 
 
 RECOMMENDED APACHE CONFIGURATION
@@ -81,7 +81,7 @@ As a result there is a folder VENDOR at site root.
 CONFIGURATION
 -------------
 ### Database installation
-Create new BD "github_browser" and import github_browser.sql via convinient BD-client (example: via phpMyAdmin or HeidiSql).
+Create new DB "github_browser" and import github_browser.sql via convinient BD-client (example: via phpMyAdmin or HeidiSql).
 
 ### Database
 
