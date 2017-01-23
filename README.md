@@ -9,7 +9,10 @@ REQUIREMENTS
 
 The minimum requirement by this project template that your Web server supports PHP 5.4.0.
 
-VIRTUAL HOST CONFIGURATION
+The application installed according to the above instructions should work out of box with either an Apache HTTP server or an Nginx HTTP server, on Windows, Mac OS X, or Linux running PHP 5.4 or higher.
+
+
+RECOMMENDED APACHE CONFIGURATION
 ---------------------------
 Create "your-site.conf" file in 
 ~~~
